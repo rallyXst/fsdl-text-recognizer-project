@@ -1,0 +1,53 @@
+How to start Project
+Go to : /mnt/c/Users/la828563/OneDrive - GSK/Documents/GitHub/fsdl-text-recognizer-project
+conda activate fsdl-text-recognizer
+
+To run jupyter notebook (after activating env)
+jupyter notebook or jupyter notebook --no-browser
+Copy & paste URL in browser
+
+or spyder or spyder3
+
+***----avoid----
+If you add, remove, or need to update versions of some requirements, edit the .in files, then run
+pip-compile requirements.in && pip-compile requirements-dev.in
+***----avoid----
+
+https://stackoverflow.com/questions/30170468/how-to-run-spyder-in-virtual-environment
+
+
+HOW to SETUP ML Dev Stack on Windows Via WSL/VS Code
+1. Install WSL
+2. Install VS Code (Source: https://dev.to/ajeet/my-development-environment-set-up-on-windows-to-use-python-for-web-dev-data-science-d55)
+	-> Install Remote - WSL or Remote Development (more general- for remoting into other systems too)
+	-> Follow instructions to log into WSL 
+	-> Install Python by Microsoft extension in the WSL space (need it outside of the local/Windows)
+	
+3. Install miniconda using 	 https://medium.com/spencerweekly/dont-use-anaconda-how-to-setup-a-decent-machine-learning-environment-a69b19c24918 
+Run wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
+
+Now you can create conda environments!
+
+***------------------
+How to add paths to PYTHOPATH in VSCode (Source: https://binx.io/blog/2020/03/05/setting-python-source-folders-vscode/)
+1. Open settings.json & paste
+	    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/lab1",
+    },
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/lab1:${workspaceFolder}/lab2",
+    },
+    "terminal.integrated.env.windows": {
+        "PYTHONPATH": "${env:PYTHONPATH};${workspaceFolder}/lab1",
+    },
+    "python.envFile": "${workspaceFolder}/.env"
+Note that you need to update the integrated environment & PYTHONPATH
+
+2. Create .env in the top level of working directory, then paste:
+	PYTHONPATH=${PYTHONPATH}:/mnt/c/Users/la828563/OneDrive - GSK/Documents/GitHub/fsdl-text-recognizer-project/lab1 # Use path separator ';' on Windows.
+	or
+	PYTHONPATH=${PYTHONPATH}:./src # Use path separator ';' on Windows.
+Note: this extends the current PYTHONPATH, doesnt overwrite it.
+
+3. Reload the VS Code window for changes to take effect
+***------------------
